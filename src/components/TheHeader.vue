@@ -1,5 +1,5 @@
 <template>
-  <header class="l-page-header">
+  <header class="l-page-header" role="banner">
     <router-link to="/">
       <img
         src="@/assets/img/logo-corona.svg"
@@ -8,7 +8,7 @@
       />
     </router-link>
 
-    <router-link to="/about" class="about">Sobre</router-link>
+    <router-link to="/about" class="c-page-header__about">Sobre o Projeto</router-link>
   </header>
 </template>
 

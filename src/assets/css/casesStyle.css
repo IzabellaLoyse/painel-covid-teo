@@ -13,10 +13,12 @@
 
 
 span {
-  font-weight: 300;
+	font-weight: 300;
 }
 
-
+a {
+	text-decoration: none;
+}
 
 
 
@@ -32,25 +34,24 @@ span {
 
 
 .l-grid-system {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  grid-template-rows: auto 1fr auto;
+	display: grid;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
+	grid-template-rows: auto 1fr auto;
 }
 
-
 .l-grid-system > header {
-  grid-area: header;
+	grid-area: header;
 }
 
 .l-grid-system > main {
-  grid-area: main;
+	grid-area: main;
 }
 
 .l-grid-system > footer {
-  grid-area: footer;
+	grid-area: footer;
 }
 
 
@@ -64,38 +65,42 @@ span {
 /*
 * Stylization of the page header.
 * 1 - Customization of the header.
-* 2 - Page logo styles.
+* 2 - Navigation page.
+* 3 - Page logo styles.
 */
 
 
 /* [1] */
 .l-page-header {
-  height: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 5rem;
 }
-
 
 /* [2] */
+.c-page-header__about {
+	padding-right: 5rem;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: var(--navigation-color);
+	cursor: pointer;
+	transition: transform 200ms ease-in-out;
+}
+
+.c-page-header__about:hover {
+	transform: scale(1.04);
+	color: var(--navigation-hover);
+}
+
+
+/* [3] */
 .c-page-header__image {
-  width: 250px;
-  padding: 0.5rem;
+	width: 255px;
+	margin: 1rem;
+	padding: 0.5rem;
 }
 
-.about {
-  padding: 0.5rem;
-  border: 1px solid var(--subtitle-color);
-  margin-right: 10px;
-  font-size: 1.1rem;
-  border-radius: 2px;
-}
-
-.about:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 5px 18px 0px rgba(0,0,0,0.24);
-  transition: all .3s;
-}
 
 
 
@@ -105,7 +110,7 @@ span {
       #MAIN
    ========================================================================== */
 
-  /*
+/*
   * Stylization of the main content of the page.
   * Style and margin settings for the main and other content integrated
   * with c-container and c-second-container.
@@ -113,42 +118,45 @@ span {
 
 
 .l-main-content {
-  margin: 2rem 10rem 3rem;
-  padding-top: 0.5rem;
+	margin: 2rem 10rem 3rem;
+	padding-top: 0.5rem;
 }
 
 
 .c-container {
-  padding-bottom: 2rem;
+	padding-bottom: 2rem;
 }
 
 
 .c-container__title {
-  font-size: 1.8rem;
-  color: var(--title-color);
-  font-weight: 700;
-  padding-left: 1rem;
-  text-align: left;
+	font-size: 1.8rem;
+	color: var(--title-color);
+	font-weight: 700;
+	padding-left: 1rem;
+	text-align: left;
 }
+
 
 .c-container__complement {
-  font-weight: 300;
+	font-weight: 300;
 }
 
+
 .c-second-container {
-  padding-left: 1rem;
+	padding-left: 1rem;
 }
 
 
 .c-second-container__subtitle {
-  color: var(--subtitle-color);
-  font-weight: 400;
-  font-size: 1.2rem;
-  text-align: left;
+	color: var(--subtitle-color);
+	font-weight: 400;
+	font-size: 1.2rem;
+	text-align: left;
 }
 
+
 .c-second-container__update {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 
@@ -159,110 +167,118 @@ span {
       #CARDS
    ========================================================================== */
 
-   /*
+/*
    * Stylization of the main content of the page.
    */
 
+
 .l-group-cards {
-  display: grid;
-  grid-gap: 1rem;
-  grid-row-gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 4rem;
-  padding-left: 1rem;
+	display: grid;
+	grid-gap: 1rem;
+	grid-row-gap: 2rem;
+	grid-template-columns: repeat(3, 1fr);
+	margin-top: 4rem;
+	padding-left: 1rem;
 }
 
 
 .l-layout-cards {
-  padding: 1rem;
-  width: 20rem;
-  height: 13rem;
-  line-height: 1.5em;
-  border-radius: 0.66rem;
-  box-shadow: 0px 4px 4px var(--shadow-color-cards);
+	padding: 1rem;
+	width: 20rem;
+	height: 13rem;
+	line-height: 1.5em;
+	border-radius: 0.66rem;
+	box-shadow: 0px 4px 4px var(--shadow-color-cards);
 }
 
 
 /* Stylization of card colors. */
 .c-recovered-card {
-  background-color: var(--recovered-card-background);
+	background-color: var(--recovered-card-background);
 }
 
-.c-suspect-card {
-  background-color: var(--suspect-card-background);
+.c-hospitalizations-card {
+	background-color: var(--hospitalizations-card-background);
 }
 
 .c-confirmed-card {
-  background-color: var(--confirmed-card-background);
+	background-color: var(--confirmed-card-background);
 }
 
 .c-death-card {
-  background-color: var(--subtitle-color);
+	background-color: var(--subtitle-color);
 }
 
 .c-vaccinated-card {
-  background-color: var(--vaccinated-card-background);
+	background-color: var(--vaccinated-card-background);
 }
 
 .c-beds-card {
-  background-color: var(--beds-card-background);
+	background-color: var(--beds-card-background);
+}
+
+
+.c-card-content__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 
 .c-card-content__title,
 .c-card-content__subtitle,
 .c-card-content__cases {
-  font-family: "Lato", sans-serif;
-  text-align: left;
+	font-family: "Lato", sans-serif;
+	text-align: left;
 }
 
-.c-card-content__title {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--card-title-color);
-  letter-spacing: 0.01em;
-  padding-bottom: 1rem;
-  padding-left: 0.5rem;
+
+.c-card-content__title,
+.c-card-content__second-title {
+	font-weight: 700;
+	font-size: 1.5rem;
+	color: var(--card-title-color);
+	letter-spacing: 0.01em;
+	padding-bottom: 0.8rem;
+	padding-left: 0.5rem;
+}
+
+
+.c-card-content__second-title {
+	padding-top: 1rem;
+}
+
+
+.c-vaccinated-card .c-card-content__title,
+.c-hospitalizations-card .c-card-content__title {
+	padding-left: 4rem;
+	font-size: 1.6rem;
 }
 
 
 .c-card-content__icon {
-  width: 2rem;
-  height: 2rem;
-  margin-left: 0.8rem;
+	width: 2rem;
+	height: 2rem;
+	margin-bottom: 1rem;
 }
 
 
 .c-card-content__subtitle {
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.2em;
-  padding-left: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: var(--card-title-color);
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 1.2em;
+	padding-left: 0.5rem;
+	padding-bottom: 0.5rem;
+	color: var(--card-title-color);
 }
 
 
 .c-card-content__cases {
-  font-weight: 700;
-  font-size: 1.5rem;
-  padding-left: 0.5rem;
-  color: var(--card-subtitle-color);
-  padding-bottom: 1rem;
-}
-
-
-/* Extra styling components. */
-
-.c-aligned-text {
-  text-align: center;
-  font-size: 1.6rem;
-}
-
-.c-spacing {
-  padding-top: 1rem;
-  text-align: center;
-  font-size: 1.8rem;
+	font-weight: 700;
+	font-size: 1.5rem;
+	padding-left: 0.5rem;
+	color: var(--card-subtitle-color);
+	padding-bottom: 1rem;
 }
 
 
@@ -280,11 +296,11 @@ span {
    */
 
 
-
 /* [1] */
 .c-page-footer__text {
-  text-align: center;
+	text-align: center;
 	padding-bottom: 0.5rem;
+	color: var(--footer-text-color);
 }
 
 
@@ -299,49 +315,47 @@ span {
 * The media queries responsible for the responsive layout.
 */
 
+
 @media (max-width: 850px) {
+	html {
+		font-size: 70%;
+	}
 
-  html {
-    font-size: 70%;
-  }
+	.l-grid-system {
+		grid-template-rows: auto auto 1fr auto auto;
+	}
 
-  .l-grid-system {
-    grid-template-rows: auto auto 1fr auto auto;
-  }
+	.c-page-header__image {
+		width: 200px;
+	}
 
-  .c-page-header__image {
-    width: 200px;
-  }
+	.l-main-content {
+		margin: 0 auto;
+		padding: 2rem;
+	}
 
-  .l-main-content {
-    margin: 0 auto;
-    padding: 2rem;
-  }
+	.c-second-container__subtitle {
+		line-height: 1em;
+	}
 
-  .c-second-container__subtitle {
-    line-height: 1em;
-  }
-
-  .l-group-cards {
-    display: grid;
-    grid-gap: 1.5rem;
-    grid-row-gap: 2rem;
-    grid-template-columns: repeat(1, 1fr);
-    margin-top: 4rem;
-    padding-left: 1rem;
-  }
+	.l-group-cards {
+		display: grid;
+		grid-gap: 1.5rem;
+		grid-row-gap: 2rem;
+		grid-template-columns: repeat(1, 1fr);
+		margin-top: 4rem;
+		padding-left: 1rem;
+	}
 }
 
 
 @media (min-width: 851px) and (max-width: 1104px) {
-
-
-  .l-group-cards {
-    display: grid;
-    grid-gap: 1.5rem;
-    grid-row-gap: 2rem;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 4rem;
-    padding-left: 1rem;
-  }
+	.l-group-cards {
+		display: grid;
+		grid-gap: 1.5rem;
+		grid-row-gap: 2rem;
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 4rem;
+		padding-left: 1rem;
+	}
 }

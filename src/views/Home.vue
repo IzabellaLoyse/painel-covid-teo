@@ -1,5 +1,5 @@
 <template>
-  <main class="l-main-content">
+  <main class="l-main-content" role="main">
     <div class="c-container">
       <h1 class="c-container__title">
         Painel
@@ -15,22 +15,24 @@
         </span>
         <span v-else>Carregando...</span>
 
-        <button @click="updateAndInit" class="button-update">Atualizar</button>
+        <button @click="updateAndInit" class="c-button-update">Atualizar</button>
       </h2>
     </div>
 
-    <section class="l-group-cards">
+    <section class="l-group-cards" role="region">
       <section class="l-layout-cards c-recovered-card">
         <div class="c-card-content">
-          <h3 class="c-card-content__title">
+        <div class="c-card-content__container">
+          <h2 class="c-card-content__title">
             Casos Recuperados
+          </h2>
 
             <img
               src="@/assets/img/icons/heart.svg"
               alt="Ícone de coração"
               class="c-card-content__icon"
             />
-          </h3>
+          </div>
 
           <transition mode="out-in" name="data">
             <p v-if="cases" class="c-card-content__cases">
@@ -51,19 +53,22 @@
         </div>
       </section>
 
-      <section class="l-layout-cards c-suspect-card">
+      <section class="l-layout-cards c-hospitalizations-card" role="region">
         <div class="c-card-content">
-          <h3 class="c-card-content__title c-aligned-text">
-            Casos Descartados
+        <div class="c-card-content__container">
+          <h2 class="c-card-content__title">
+            Internações
+          </h2>
 
             <img
-              src="@/assets/img/icons/lupa.svg"
-              alt="Ícone de lupa"
+              src="@/assets/img/icons/pharmacy.svg"
+              alt="Ícone de símbolo hospitalar"
               class="c-card-content__icon"
             />
-          </h3>
+            </div>
+         
           <transition mode="out-in" name="data">
-            <p v-if="cases" class="c-card-content__cases c-spacing">
+            <p v-if="cases" class="c-card-content__cases">
               {{ cases.discarded }} <span>casos</span>
             </p>
             <p v-else>Carregando...</p>
@@ -71,17 +76,19 @@
         </div>
       </section>
 
-      <section class="l-layout-cards c-confirmed-card">
+      <section class="l-layout-cards c-confirmed-card" role="region">
         <div class="c-card-content">
-          <h3 class="c-card-content__title c-aligned-text">
+        <div class="c-card-content__container">
+          <h2 class="c-card-content__title">
             Casos Confirmados
+          </h2>
 
             <img
-              src="@/assets/img/icons/confirme.svg"
+              src="@/assets/img/icons/confirm.svg"
               alt="Ícone de confirmação"
               class="c-card-content__icon"
             />
-          </h3>
+            </div>
 
           <transition mode="out-in" name="data">
             <p v-if="cases" class="c-card-content__cases c-spacing">
@@ -94,15 +101,18 @@
 
       <section class="l-layout-cards c-death-card">
         <div class="c-card-content">
-          <h3 class="c-card-content__title">
+        <div class="c-card-content__container">
+          <h2 class="c-card-content__title">
             Óbitos Confirmados
+          </h2>
 
             <img
               src="@/assets/img/icons/death.svg"
               alt="Ícone de caveira com o vírus"
               class="c-card-content__icon"
             />
-          </h3>
+          </div>
+
           <transition mode="out-in" name="data">
             <p v-if="deaths" class="c-card-content__cases">
               {{ deaths.confirmed }} <span>óbitos</span>
@@ -112,25 +122,28 @@
         </div>
 
         <div class="c-card-content">
-          <h3 class="c-card-content__title">Óbitos em investigação</h3>
+          <h3 class="c-card-content__second-title">Óbitos em investigação</h3>
           <p class="c-card-content__cases">00 <span>óbitos</span></p>
         </div>
       </section>
 
-      <section class="l-layout-cards c-vaccinated-card">
+      <section class="l-layout-cards c-vaccinated-card" role="region">
         <div class="c-card-content">
-          <h3 class="c-card-content__title c-aligned-text">
+        <div class="c-card-content__container">
+          <h2 class="c-card-content__title">
             Vacinômetro
+          </h2>
 
             <img
               src="@/assets/img/icons/seringa.svg"
               alt="Ícone de seringa"
               class="c-card-content__icon"
             />
-          </h3>
+          </div>
+
           <transition mode="out-in" name="data">
             <span v-if="vaccine">
-              <h4 class="c-card-content__subtitle">1&ordf; dose</h4>
+              <h3 class="c-card-content__subtitle">1&ordf; dose</h3>
               <p class="c-card-content__cases">{{ vaccine[0].applied_dose }}</p>
 
               <h4 class="c-card-content__subtitle">2&ordf; dose</h4>
@@ -141,24 +154,27 @@
         </div>
       </section>
 
-      <section class="l-layout-cards c-beds-card">
+      <section class="l-layout-cards c-beds-card" role="region">
         <div class="c-card-content">
+        <div class="c-card-content__container">
           <h3 class="c-card-content__title">
             Leitos disponíveis
+          </h3>
 
             <img
               src="@/assets/img/icons/bed.svg"
               alt="Ícone de cama hospitalar"
               class="c-card-content__icon"
             />
-          </h3>
+            </div>
+          
           <transition mode="out-in" name="data">
             <span v-if="beds">
               <p class="c-card-content__cases">
                 {{ beds.beds }} <span>leitos</span>
               </p>
 
-              <h3 class="c-card-content__title">Leitos ocupados</h3>
+              <h3 class="c-card-content__second-title">Leitos ocupados</h3>
               <p class="c-card-content__cases">
                 {{ beds.busy_beds }} <span>leitos</span>
               </p>
@@ -244,17 +260,23 @@ export default {
 </script>
 
 <style scoped>
-.button-update {
-  padding: 2px 3px;
-  border: 1px solid rgb(45, 43, 43);
-  border-radius: 3px;
-  background: rgb(245, 246, 249);
+.c-button-update {
+  width: 8rem;
+  height: 2.2rem;
+  padding: 3px 3px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--card-title-color);
+  font-weight: 700;
+  background-color:#19BD6F;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px var(--shadow-color-cards);
+  transition: all 200ms ;
 }
 
-.button-update:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 5px 18px 0px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s;
+.c-button-update:hover {
+  background-color: #12BD5F;
 }
 
 .data-enter {

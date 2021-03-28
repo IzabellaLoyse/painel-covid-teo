@@ -1,7 +1,10 @@
 <template>
-  <div class="l-main-content">
-    <h2>Sobre</h2>
-    <p>
+  <section class="l-main-content" role="region">
+
+  <div class="c-page-about">
+
+    <h1 class="c-page-about__title">Sobre o Projeto</h1>
+    <p class="c-page-about__text">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam voluptas
       totam earum aut, quisquam accusamus! Minus nesciunt, adipisci quae
       quisquam nemo repudiandae id enim placeat possimus, magnam earum dolorem
@@ -36,15 +39,29 @@
       voluptatibus voluptate mollitia aspernatur eos. Dolorum dolorem at, beatae
       voluptatem excepturi tempore adipisci praesentium dignissimos!
     </p>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-h2 {
-  margin-bottom: 20px;
+
+.c-page-about {
+margin-top: 1rem;
 }
 
-p {
-  line-height: 20px;
+.c-page-about__title {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--title-color);
+  text-align: left; 
+}
+
+.c-page-about__text {
+  line-height: 1.8rem;
+  font-size: 1.1rem;
+  text-align: left; 
+  color: var(--subtitle-color);
+	font-weight: 400; 
 }
 </style>
